@@ -3,16 +3,17 @@ package com.postech.lending.infrastructure.exception;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-public class ErrorMessageException extends RuntimeException{
+public class ErrorMessageException extends RuntimeException {
 
-    public static final long serialVersionUUID = 1L;
+    public static final long SERIAL_VERSION_UUID = 1L;
+
     public ErrorMessageException(String message) {
         super(message);
     }
 
     @Getter
     @AllArgsConstructor
-    public enum Message{
+    public enum Message {
         CLIENT_PROFILE_DISABLED("Cliente não pode ser atualizado, perfil está desabilitado."),
         CLIENT_DOCUMENT_EMPTY("Não temos cliente com esse documento."),
         CLIENT_NOT_FOUND("Cliente não encontrado: "),
@@ -21,7 +22,7 @@ public class ErrorMessageException extends RuntimeException{
         ADDRESS_NOT_DELETED("Endereço não apagado, verifique as informações e tente novamente.");
 
 
-        private String message;
+        private String messageEnum;
     }
 
 }

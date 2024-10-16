@@ -4,14 +4,12 @@ import com.postech.lending.client.model.Address;
 import com.postech.lending.client.model.Client;
 import com.postech.lending.client.model.enums.ProfileState;
 import com.postech.lending.client.model.enums.UserRole;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Setter
 @Getter
@@ -21,7 +19,7 @@ public class ClientDTO {
     private Long id;
     private String firstName;
     private String lastName;
-    private Date birthdate;
+    private LocalDate birthdate;
     private String document;
     private String email;
     private String phone;
@@ -61,7 +59,7 @@ public class ClientDTO {
 
     }
 
-    public ClientDTO(Client client, List<Address> addressList ) {
+    public ClientDTO(Client client, List<Address> addressList) {
         this.id = client.getId();
         this.firstName = client.getFirstName();
         this.lastName = client.getLastName();

@@ -4,12 +4,10 @@ import com.postech.lending.client.model.enums.ProfileState;
 import com.postech.lending.client.model.enums.UserRole;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.*;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import lombok.*;
 
 @Entity
 @Data
@@ -33,7 +31,7 @@ public class Client {
     private String lastName;
 
     @Column(name = "birthdate")
-    private Date birthdate;
+    private LocalDate birthdate;
 
     @Column(name = "document", length = 14, nullable = false, unique = true)
     @NotBlank(message = "Campo não pode ser vazio ou nulo")

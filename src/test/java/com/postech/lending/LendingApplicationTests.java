@@ -8,6 +8,6 @@ class LendingApplicationTests {
 
     @Test
     void contextLoads() {
+        // Este teste verifica se o contexto da aplicação carrega corretamente
     }
-
 }
