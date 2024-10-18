@@ -17,4 +17,5 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
     @Query("select c from Client as c where c.document like %?1%")
     List<ClientDTO> findClientsByDocument(@Param("document") String document);
 
+    Client findByDocument(String document);
 }

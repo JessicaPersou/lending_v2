@@ -42,6 +42,12 @@ public class ClientServiceImpl implements ClientService {
         return new ClientDTO(client, client.getAddressList());
     }
 
+    public String clientByDocument(ClientDTO clientDTO) {
+        Client client = clientRepository.findByDocument(clientDTO.getDocument());
+        String document = client.getDocument();
+        return document;
+    }
+
     public List<ClientDTO> clientsByDocument(String document) {
         var client = clientRepository.findClientsByDocument(document);
         if (!client.isEmpty()) {
