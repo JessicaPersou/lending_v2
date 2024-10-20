@@ -44,8 +44,7 @@ public class ClientServiceImpl implements ClientService {
 
     public String clientByDocument(ClientDTO clientDTO) {
         Client client = clientRepository.findByDocument(clientDTO.getDocument());
-        String document = client.getDocument();
-        return document;
+        return client.getDocument();
     }
 
     public List<ClientDTO> clientsByDocument(String document) {

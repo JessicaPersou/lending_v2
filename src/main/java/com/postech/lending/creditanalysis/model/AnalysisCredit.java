@@ -1,8 +1,10 @@
 package com.postech.lending.creditanalysis.model;
 
+import com.postech.lending.client.model.Client;
 import com.postech.lending.creditanalysis.model.enums.StatusAnalysisEnum;
 import java.math.BigDecimal;
 import jakarta.persistence.*;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,6 +37,17 @@ public class AnalysisCredit {
     @Enumerated(EnumType.STRING)
     @Column(name = "status_analysis", nullable = false)
     private StatusAnalysisEnum statusAnalysis;  // Status da análise de crédito
+
+    //Muitas analises para um cliente
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id", nullable = false)
+    private Client clientId;
+
+    @OneToOne(mappedBy = "analysisCreditId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private CreditCalculationResult creditCalculationResultId;
+
+    @OneToMany(mappedBy = "analysisCreditId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Installment> installments;
 
 
 }

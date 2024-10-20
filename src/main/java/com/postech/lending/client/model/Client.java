@@ -2,6 +2,7 @@ package com.postech.lending.client.model;
 
 import com.postech.lending.client.model.enums.ProfileState;
 import com.postech.lending.client.model.enums.UserRole;
+import com.postech.lending.creditanalysis.model.AnalysisCredit;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import java.time.LocalDate;
@@ -60,6 +61,9 @@ public class Client {
 
     @Column(name = "dt_profile_disabled")
     private LocalDate dtProfileDisabled;
+
+    @OneToMany(mappedBy = "clientId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<AnalysisCredit> analysisCreditsList = new ArrayList<>();;
 
     public Client(long id) {
         this.id = id;
