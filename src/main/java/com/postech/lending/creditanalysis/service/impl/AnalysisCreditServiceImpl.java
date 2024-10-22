@@ -16,6 +16,7 @@ import com.postech.lending.creditanalysis.service.AnalysisCreditService;
 import com.postech.lending.creditanalysis.service.calculator.InstallmentsCalculator;
 import com.postech.lending.creditanalysis.service.calculator.InterestRateCalculator;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.stereotype.Service;
