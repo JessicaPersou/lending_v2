@@ -1,6 +1,5 @@
 package com.postech.lending.creditanalysis.model;
 
-import com.postech.lending.creditanalysis.dto.InstallmentDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -12,7 +11,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,36 +29,27 @@ public class Installment {
     private Long id;
 
     @Column(name = "installment_number", nullable = false)
-    private int installmentNumber; // Número da parcela (1, 2, 3...)
+    private int installmentNumber;
 
     @Column(name = "due_date", nullable = false)
-    private LocalDate dueDate; // Data de vencimento da parcela
+    private LocalDate dueDate;
 
     @Column(name = "installment_amount", nullable = false)
-    private BigDecimal installmentAmount; // Valor da parcela
+    private BigDecimal installmentAmount;
 
-    // Relacionamento com a análise de crédito (muitas parcelas para uma análise)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "analysis_credit_id")
     private AnalysisCredit analysisCreditId;
 
-//     Outros atributos que podem ser adicionados futuramente:
-     @Column(name = "late_fee")
-     private BigDecimal lateFee; // Multa por atraso
+    @Column(name = "late_fee")
+    private BigDecimal lateFee;
 
-    // Mapeamento para a entidade CreditCalculationResult (lado dono da relação)
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "credit_calculation_result_id") // Nome da coluna no banco de dados
+    @JoinColumn(name = "credit_calculation_result_id")
     private CreditCalculationResult creditCalculationResultId;
 
-    // @Column(name = "payment_status")
-    // private String paymentStatus; // Status de pagamento da parcela (Paga, Atrasada, etc.)
+    @Column(name = "bar_code")
+    private String barCode;
 
-    public InstallmentDTO convertToDTO() {
-        InstallmentDTO dto = new InstallmentDTO();
-        dto.setInstallmentNumber(this.getInstallmentNumber());
-        dto.setInstallmentAmount(this.getInstallmentAmount());
-        dto.setDueDate(this.getDueDate());
-        return dto;
-    }
+
 }

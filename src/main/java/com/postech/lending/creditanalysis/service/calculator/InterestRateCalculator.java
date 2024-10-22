@@ -1,6 +1,5 @@
 package com.postech.lending.creditanalysis.service.calculator;
 
-
 import com.postech.lending.creditanalysis.model.AnalysisCredit;
 import java.math.BigDecimal;
 import java.math.RoundingMode;

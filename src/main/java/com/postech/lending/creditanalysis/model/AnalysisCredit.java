@@ -2,8 +2,21 @@ package com.postech.lending.creditanalysis.model;
 
 import com.postech.lending.client.model.Client;
 import com.postech.lending.creditanalysis.model.enums.StatusAnalysisEnum;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import java.math.BigDecimal;
-import jakarta.persistence.*;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,25 +33,24 @@ public class AnalysisCredit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;  // Identificador único gerado automaticamente
+    private Long id;
 
     @Column(name = "requested_value", nullable = false)
-    private BigDecimal requestedValue;  // Valor solicitado pelo cliente
+    private BigDecimal requestedValue;
 
     @Column(name = "monthly_income", nullable = false)
-    private BigDecimal monthlyIncome;  // Renda mensal do cliente
+    private BigDecimal monthlyIncome;
 
     @Column(name = "document", nullable = false, length = 20)
-    private String document;  // Documento do cliente (CPF ou CNPJ)
+    private String document;
 
     @Column(name = "number_installment", nullable = false)
-    private int numberInstallment;  // Quantidade de parcelas
+    private int numberInstallment;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status_analysis", nullable = false)
-    private StatusAnalysisEnum statusAnalysis;  // Status da análise de crédito
+    private StatusAnalysisEnum statusAnalysis;
 
-    //Muitas analises para um cliente
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", nullable = false)
     private Client clientId;

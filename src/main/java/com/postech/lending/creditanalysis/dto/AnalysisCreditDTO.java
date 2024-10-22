@@ -1,19 +1,9 @@
 package com.postech.lending.creditanalysis.dto;
 
 import com.postech.lending.client.dto.ClientDTO;
-import com.postech.lending.client.model.Client;
 import com.postech.lending.creditanalysis.model.AnalysisCredit;
-import com.postech.lending.creditanalysis.model.CreditCalculationResult;
-import com.postech.lending.creditanalysis.model.Installment;
 import com.postech.lending.creditanalysis.model.enums.StatusAnalysisEnum;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import java.math.BigDecimal;
-
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
@@ -25,11 +15,11 @@ import lombok.Setter;
 @NoArgsConstructor
 public class AnalysisCreditDTO {
     private Long id;
-    private BigDecimal requestedValue;       // Valor solicitado pelo cliente
-    private BigDecimal monthlyIncome;        // Renda mensal do cliente
-    private String document;                 // Documento do cliente (CPF ou CNPJ)
-    private int numberInstallment;           // Quantidade de parcelas
-    private StatusAnalysisEnum statusAnalysis;   // Status da análise de crédito
+    private BigDecimal requestedValue;
+    private BigDecimal monthlyIncome;
+    private String document;
+    private int numberInstallment;
+    private StatusAnalysisEnum statusAnalysis;
     private ClientDTO clientId;
     private CreditCalculationResultDTO creditCalculationResultId;
     private List<InstallmentDTO> installments;

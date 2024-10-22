@@ -1,20 +1,23 @@
 package com.postech.lending.client.service.impl;
 
-import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
+import com.postech.lending.client.dto.ClientDTO;
+import com.postech.lending.client.model.Client;
+import com.postech.lending.client.model.enums.ProfileState;
 import com.postech.lending.client.model.enums.UserRole;
+import com.postech.lending.client.repository.ClientRepository;
 import java.time.LocalDate;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import com.postech.lending.client.dto.ClientDTO;
-import com.postech.lending.client.model.Client;
-import com.postech.lending.client.model.enums.ProfileState;
-import com.postech.lending.client.repository.ClientRepository;
 
 @ExtendWith(MockitoExtension.class) // Inicializa os mocks automaticamente
 class ClientServiceImplTest {

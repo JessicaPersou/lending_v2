@@ -43,12 +43,12 @@ public class ClientServiceImpl implements ClientService {
     }
 
     public String clientByDocument(ClientDTO clientDTO) {
-        Client client = clientRepository.findByDocument(clientDTO.getDocument());
+        Client client = clientRepository.findByDocument(removeCaracterDocument(clientDTO.getDocument()));
         return client.getDocument();
     }
 
     public List<ClientDTO> clientsByDocument(String document) {
-        var client = clientRepository.findClientsByDocument(document);
+        var client = clientRepository.findClientsByDocument(removeCaracterDocument(document));
         if (!client.isEmpty()) {
             return client;
         }
@@ -67,7 +67,7 @@ public class ClientServiceImpl implements ClientService {
         client.setFirstName(clientDTO.getFirstName());
         client.setLastName(clientDTO.getLastName());
         client.setBirthdate(clientDTO.getBirthdate());
-        client.setDocument(clientDTO.getDocument());
+        client.setDocument(removeCaracterDocument(clientDTO.getDocument()));
         client.setEmail(clientDTO.getEmail());
         client.setPhone(clientDTO.getPhone());
         client.setDtCreated(LocalDate.now());
@@ -103,5 +103,10 @@ public class ClientServiceImpl implements ClientService {
         }
         clientRepository.save(client);
         return new ClientDTO(client);
+    }
+
+    public static String removeCaracterDocument(String document){
+        document = document.replaceAll("[^0-9]", "");
+        return document;
     }
 }
