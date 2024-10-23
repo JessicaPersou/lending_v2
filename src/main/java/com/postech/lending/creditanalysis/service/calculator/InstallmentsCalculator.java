@@ -7,15 +7,18 @@ import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class InstallmentsCalculator {
 
+    private static final Logger logger = Logger.getLogger(InstallmentsCalculator.class.getName());
 
     public List<Installment> calculateInstallments(CreditCalculationResult creditCalculationResult) {
         BigDecimal totalValueToPaid = creditCalculationResult.getTotalAmount();
         int installmentNumber = creditCalculationResult.getInstallmentNumber();
-        BigDecimal installmentAmount = totalValueToPaid.divide(BigDecimal.valueOf(installmentNumber),2, RoundingMode.HALF_UP);
-
+        BigDecimal installmentAmount = totalValueToPaid.divide(BigDecimal.valueOf(installmentNumber), 2,
+                RoundingMode.HALF_UP);
 
         List<Installment> installments = new ArrayList<>();
 
@@ -27,7 +30,9 @@ public class InstallmentsCalculator {
             installments.add(installment);
         }
 
-        System.out.println("Installments generated: " + installments.size());
+        if (logger.isLoggable(Level.INFO)) {
+            logger.info("Quantidade de Parcelamento Gerada: " + installments.size());
+        }
 
         return installments;
     }

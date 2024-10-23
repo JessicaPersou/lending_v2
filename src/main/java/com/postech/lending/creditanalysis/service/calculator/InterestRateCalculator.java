@@ -1,9 +1,11 @@
 package com.postech.lending.creditanalysis.service.calculator;
 
+import static java.text.MessageFormat.format;
+
 import com.postech.lending.creditanalysis.model.AnalysisCredit;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,7 +24,7 @@ public class InterestRateCalculator {
 
     private static final Logger LOGGER = Logger.getLogger(InterestRateCalculator.class.getName());
 
-    public BigDecimal amountToBePaidAfterPeriod(AnalysisCredit analysisCredit) throws RuntimeException {
+    public BigDecimal amountToBePaidAfterPeriod(AnalysisCredit analysisCredit) {
         BigDecimal desiredValue = analysisCredit.getRequestedValue();
         int numberInstallment = analysisCredit.getNumberInstallment();
         BigDecimal monthlyIncome = calculateByMonthlyIncome(analysisCredit.getMonthlyIncome(), ANNUAL_INTEREST_RATE);
@@ -36,8 +38,9 @@ public class InterestRateCalculator {
         finalValue = desiredValue.multiply(addInterestRate).setScale(2, RoundingMode.HALF_UP);
 
         finalValue = getFinalValue(numberInstallment, finalValue, desiredValue);
-        LOGGER.info("Cálculo finalizado com sucesso. Valor final: %s".formatted(finalValue));
-
+        if (LOGGER.isLoggable(Level.INFO)) {
+            LOGGER.info(format("Cálculo finalizado com sucesso. Valor final: %s{0}", finalValue));
+        }
         return finalValue;
     }
 

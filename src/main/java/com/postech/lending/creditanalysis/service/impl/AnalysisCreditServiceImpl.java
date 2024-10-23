@@ -16,7 +16,6 @@ import com.postech.lending.creditanalysis.service.AnalysisCreditService;
 import com.postech.lending.creditanalysis.service.calculator.InstallmentsCalculator;
 import com.postech.lending.creditanalysis.service.calculator.InterestRateCalculator;
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -28,16 +27,13 @@ public class AnalysisCreditServiceImpl implements AnalysisCreditService {
     public final CreditCalculationResultRepository creditCalculationResultRepository;
     public final ClientRepository clientRepository;
     public final InstallmentRepository installmentRepository;
-    private final ClientServiceImpl clientServiceImpl;
 
     public AnalysisCreditServiceImpl(AnalysisCreditRepository analysisCreditRepository,
-            CreditCalculationResultRepository creditCalculationResultRepository, ClientRepository clientRepository, InstallmentRepository installmentRepository,
-            ClientServiceImpl clientServiceImpl) {
+            CreditCalculationResultRepository creditCalculationResultRepository, ClientRepository clientRepository, InstallmentRepository installmentRepository) {
         this.analysisCreditRepository = analysisCreditRepository;
         this.creditCalculationResultRepository = creditCalculationResultRepository;
         this.clientRepository = clientRepository;
         this.installmentRepository = installmentRepository;
-        this.clientServiceImpl = clientServiceImpl;
     }
 
     @Override

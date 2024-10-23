@@ -76,7 +76,7 @@ public class Client {
     private LocalDate dtProfileDisabled;
 
     @OneToMany(mappedBy = "clientId", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<AnalysisCredit> analysisCreditsList = new ArrayList<>();;
+    private List<AnalysisCredit> analysisCreditsList = new ArrayList<>();
 
     public Client(long id) {
         this.id = id;

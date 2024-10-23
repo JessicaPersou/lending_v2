@@ -18,14 +18,14 @@ public class InstallmentDTO {
     private int installmentNumber;
     private LocalDate dueDate;
     private BigDecimal installmentAmount;
-    private String BarCode;
+    private String barCode;
 
     public InstallmentDTO(Installment installment) {
         this.id = installment.getId();
         this.installmentNumber = installment.getInstallmentNumber();
         this.dueDate = installment.getDueDate();
         this.installmentAmount = installment.getInstallmentAmount();
-        this.BarCode = installment.getBarCode();
+        this.barCode = installment.getBarCode();
     }
 
 }

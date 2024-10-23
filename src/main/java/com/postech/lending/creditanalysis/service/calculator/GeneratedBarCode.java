@@ -1,8 +1,16 @@
 package com.postech.lending.creditanalysis.service.calculator;
 
 import java.util.Random;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class GeneratedBarCode {
+
+    private GeneratedBarCode(){
+
+    }
 
     private static final String PREFIX_EAN_BRASIL = "789";
     private static final Random random = new Random();

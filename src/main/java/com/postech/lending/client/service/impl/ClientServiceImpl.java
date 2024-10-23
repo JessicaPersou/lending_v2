@@ -106,7 +106,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     public static String removeCaracterDocument(String document){
-        document = document.replaceAll("[^0-9]", "");
+        document = document.replaceAll("[D^0-9]", "");
         return document;
     }
 }
