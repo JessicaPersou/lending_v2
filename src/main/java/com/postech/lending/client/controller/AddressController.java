@@ -3,8 +3,6 @@ package com.postech.lending.client.controller;
 import com.postech.lending.client.dto.AddressDTO;
 import com.postech.lending.client.service.AddressService;
 import java.util.List;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,13 +23,13 @@ public class AddressController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<List<AddressDTO>> addressByClient(@PathVariable Long id) {
-        return ResponseEntity.ok(addressService.findAddressByClientId(id));
+    public List<AddressDTO> addressByClient(@PathVariable Long id) {
+        return addressService.findAddressByClientId(id);
     }
 
     @PostMapping("{clientId}/")
-    public ResponseEntity<AddressDTO> newAddress(@PathVariable Long clientId, @RequestBody AddressDTO addressDTO) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(addressService.createNewAddress(clientId, addressDTO));
+    public AddressDTO newAddress(@PathVariable Long clientId, @RequestBody AddressDTO addressDTO) {
+        return addressService.createNewAddress(clientId, addressDTO);
     }
 
     @PutMapping("{idClient}//{idAddress}")

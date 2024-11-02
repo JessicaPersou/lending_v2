@@ -5,8 +5,6 @@ import com.postech.lending.client.service.ClientService;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.data.repository.query.Param;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,39 +24,39 @@ public class ClientController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ClientDTO>> allClients() {
-        return ResponseEntity.ok(clientService.findAll());
+    public List<ClientDTO> allClients() {
+        return clientService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ClientDTO> clientById(@PathVariable Long id) {
-        return ResponseEntity.ok(clientService.clientById(id));
+    public ClientDTO clientById(@PathVariable Long id) {
+        return clientService.clientById(id);
     }
 
     @GetMapping("/document")
-    public ResponseEntity<List<ClientDTO>> allClientsByDocument(@Param("document") String document) {
-        return ResponseEntity.ok(clientService.clientsByDocument(document));
+    public List<ClientDTO> allClientsByDocument(@Param("document") String document) {
+        return clientService.clientsByDocument(document);
     }
 
     @GetMapping("/profile")
-    public ResponseEntity<List<ClientDTO>> clientsProfile() {
-        return ResponseEntity.ok(clientService.clientStatusProfileDisabled());
+    public List<ClientDTO> clientsProfile() {
+        return clientService.clientStatusProfileDisabled();
     }
 
     @PostMapping
-    public ResponseEntity<ClientDTO> newClient(@Valid @RequestBody ClientDTO clientDTO) {
+    public ClientDTO newClient(@Valid @RequestBody ClientDTO clientDTO) {
         ClientDTO newClient = clientService.createNewClient(clientDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newClient);
+        return newClient;
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ClientDTO> clientUpdate(@PathVariable Long id, @Valid @RequestBody ClientDTO clientDTO) {
-        return ResponseEntity.ok(clientService.clientUpdate(id, clientDTO));
+    public ClientDTO clientUpdate(@PathVariable Long id, @Valid @RequestBody ClientDTO clientDTO) {
+        return clientService.clientUpdate(id, clientDTO);
     }
 
     @PostMapping("disabled/{id}")
-    public ResponseEntity<ClientDTO> disableClient(@PathVariable Long id) {
-        return ResponseEntity.ok(clientService.disableClient(id));
+    public ClientDTO disableClient(@PathVariable Long id) {
+        return clientService.disableClient(id);
     }
 
 }
