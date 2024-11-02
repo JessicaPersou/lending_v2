@@ -7,12 +7,10 @@ import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class InstallmentsCalculator {
-
-    private static final Logger logger = Logger.getLogger(InstallmentsCalculator.class.getName());
 
     public List<Installment> calculateInstallments(CreditCalculationResult creditCalculationResult) {
         BigDecimal totalValueToPaid = creditCalculationResult.getTotalAmount();
@@ -30,9 +28,7 @@ public class InstallmentsCalculator {
             installments.add(installment);
         }
 
-        if (logger.isLoggable(Level.INFO)) {
-            logger.info("Quantidade de Parcelamento Gerada: " + installments.size());
-        }
+        log.info("Quantidade de Parcelamento Gerada: " + installments.size());
 
         return installments;
     }

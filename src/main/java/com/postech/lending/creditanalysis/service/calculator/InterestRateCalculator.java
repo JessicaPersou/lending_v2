@@ -5,13 +5,13 @@ import static java.text.MessageFormat.format;
 import com.postech.lending.creditanalysis.model.AnalysisCredit;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Setter
+@Slf4j
 public class InterestRateCalculator {
 
     private static final BigDecimal ANNUAL_INTEREST_RATE = new BigDecimal("0.12"); // 12% ao ano
@@ -22,8 +22,6 @@ public class InterestRateCalculator {
     private static final int THREE_YEARS_IN_MONTHS = 36;
     private static final int FOUR_YEARS_IN_MONTHS = 48;
 
-    private static final Logger LOGGER = Logger.getLogger(InterestRateCalculator.class.getName());
-
     public BigDecimal amountToBePaidAfterPeriod(AnalysisCredit analysisCredit) {
         BigDecimal desiredValue = analysisCredit.getRequestedValue();
         int numberInstallment = analysisCredit.getNumberInstallment();
@@ -32,31 +30,31 @@ public class InterestRateCalculator {
 
         BigDecimal finalValue;
 
-        LOGGER.info("Iniciando o cálculo do valor a ser pago para o cliente com documento: "
+        log.info("Iniciando o cálculo do valor a ser pago para o cliente com documento: "
                 + analysisCredit.getDocument());
         BigDecimal addInterestRate = BigDecimal.ONE.add(monthlyIncome).pow(numberInstallment);
         finalValue = desiredValue.multiply(addInterestRate).setScale(2, RoundingMode.HALF_UP);
 
         finalValue = getFinalValue(numberInstallment, finalValue, desiredValue);
-        if (LOGGER.isLoggable(Level.INFO)) {
-            LOGGER.info(format("Cálculo finalizado com sucesso. Valor final: %s{0}", finalValue));
-        }
+
+        log.info(format("Cálculo finalizado com sucesso. Valor final: %s{0}", finalValue));
+
         return finalValue;
     }
 
     private BigDecimal getFinalValue(int numberInstallment, BigDecimal finalValue, BigDecimal desiredValue) {
         if (numberInstallment <= ONE_YEAR_IN_MONTHS) {
             finalValue = calculateWithAnnualRate(desiredValue, 1);
-            LOGGER.info("Cálculo para 1 ano de juros aplicado.");
+            log.info("Cálculo para 1 ano de juros aplicado.");
         }else if (numberInstallment <= TWO_YEARS_IN_MONTHS) {
             finalValue = calculateWithAnnualRate(desiredValue, 2);
-            LOGGER.info("Cálculo para 2 anos de juros aplicado.");
+            log.info("Cálculo para 2 anos de juros aplicado.");
         } else if (numberInstallment <= THREE_YEARS_IN_MONTHS) {
             finalValue = calculateWithAnnualRate(desiredValue, 3);
-            LOGGER.info("Cálculo para 3 anos de juros aplicado.");
+            log.info("Cálculo para 3 anos de juros aplicado.");
         } else if (numberInstallment <= FOUR_YEARS_IN_MONTHS) {
             finalValue = calculateWithAnnualRate(desiredValue, 4);
-            LOGGER.info("Cálculo para 4 anos de juros aplicado.");
+            log.info("Cálculo para 4 anos de juros aplicado.");
         }
         return finalValue;
     }
