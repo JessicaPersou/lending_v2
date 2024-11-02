@@ -1,4 +1,4 @@
-package com.postech.lending.creditanalysis.service.calculator;
+package com.postech.lending.infrastructure;
 
 import java.util.Random;
 import lombok.Getter;

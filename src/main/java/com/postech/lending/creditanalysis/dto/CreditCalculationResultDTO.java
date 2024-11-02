@@ -3,7 +3,7 @@ package com.postech.lending.creditanalysis.dto;
 import com.postech.lending.creditanalysis.model.CreditCalculationResult;
 import com.postech.lending.creditanalysis.model.Installment;
 import com.postech.lending.creditanalysis.model.enums.StatusAnalysisEnum;
-import com.postech.lending.creditanalysis.service.calculator.GeneratedBarCode;
+import com.postech.lending.infrastructure.GeneratedBarCode;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;

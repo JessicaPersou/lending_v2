@@ -1,4 +1,4 @@
-package com.postech.lending.creditanalysis.service.calculator;
+package com.postech.lending.creditanalysis.service.util;
 
 import com.postech.lending.creditanalysis.model.CreditCalculationResult;
 import com.postech.lending.creditanalysis.model.Installment;
