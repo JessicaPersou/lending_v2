@@ -1,0 +1,637 @@
+{
+	"info": {
+		"_postman_id": "26f99677-01b8-4ad0-9a04-55d59e899856",
+		"name": "Lending",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "19199790"
+	},
+	"item": [
+		{
+			"name": "analysis-credit",
+			"item": [
+				{
+					"name": "createCreditAnalysis",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"requestedValue\": 5000,\r\n    \"monthlyIncome\": 1000,\r\n    \"document\": \"03251148206\",\r\n    \"numberInstallment\": 12,\r\n    \"statusAnalysis\": \"IN_PROGRESS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/analysis-credit/create",
+						"description": "Generated from cURL: curl -X POST http://localhost:8080/api/credit-analysis \\\r\n-H \"Content-Type: application/json\" \\\r\n-d '{\r\n  \"requestedValue\": 10000.00,\r\n  \"monthlyIncome\": 5000.00,\r\n  \"document\": \"12345678900\",\r\n  \"numberInstallment\": 12,\r\n  \"statusAnalysis\": \"PENDING\"\r\n}'\r\n"
+					},
+					"response": [
+						{
+							"name": "Exemplo: createCreditAnalysis",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"requestedValue\": 5000.00,\r\n  \"monthlyIncome\": 2500.00,\r\n  \"document\": \"133-424-634-30\",\r\n  \"numberInstallment\": 10,\r\n  \"statusAnalysis\": \"IN_PROGRESS\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:8080/analysis-credit/create"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 22 Oct 2024 04:15:51 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 63,\n    \"interestRate\": 600,\n    \"totalAmount\": 5600,\n    \"installmentNumber\": 10,\n    \"calculationDate\": \"2024-10-22\",\n    \"analysisExpirationDate\": \"2024-10-24\",\n    \"installmentDTOList\": [\n        {\n            \"id\": 569,\n            \"installmentNumber\": 1,\n            \"dueDate\": \"2024-11-22\",\n            \"installmentAmount\": 560,\n            \"barCode\": \"789639013.0789043256.1789194327.0078960512056000\"\n        },\n        {\n            \"id\": 570,\n            \"installmentNumber\": 2,\n            \"dueDate\": \"2024-12-22\",\n            \"installmentAmount\": 560,\n            \"barCode\": \"789074573.0789495913.1789075497.0078956943856000\"\n        },\n        {\n            \"id\": 571,\n            \"installmentNumber\": 3,\n            \"dueDate\": \"2025-01-22\",\n            \"installmentAmount\": 560,\n            \"barCode\": \"789257124.0789995025.1789829919.0078966178156000\"\n        },\n        {\n            \"id\": 572,\n            \"installmentNumber\": 4,\n            \"dueDate\": \"2025-02-22\",\n            \"installmentAmount\": 560,\n            \"barCode\": \"789130895.0789451657.1789423271.0078987886956000\"\n        },\n        {\n            \"id\": 573,\n            \"installmentNumber\": 5,\n            \"dueDate\": \"2025-03-22\",\n            \"installmentAmount\": 560,\n            \"barCode\": \"789503613.0789900593.1789572638.0078952707156000\"\n        },\n        {\n            \"id\": 574,\n            \"installmentNumber\": 6,\n            \"dueDate\": \"2025-04-22\",\n            \"installmentAmount\": 560,\n            \"barCode\": \"789677622.0789027967.1789104008.0078967087456000\"\n        },\n        {\n            \"id\": 575,\n            \"installmentNumber\": 7,\n            \"dueDate\": \"2025-05-22\",\n            \"installmentAmount\": 560,\n            \"barCode\": \"789162628.0789348649.1789305849.0078939378456000\"\n        },\n        {\n            \"id\": 576,\n            \"installmentNumber\": 8,\n            \"dueDate\": \"2025-06-22\",\n            \"installmentAmount\": 560,\n            \"barCode\": \"789776384.0789941122.1789325377.0078994037356000\"\n        },\n        {\n            \"id\": 577,\n            \"installmentNumber\": 9,\n            \"dueDate\": \"2025-07-22\",\n            \"installmentAmount\": 560,\n            \"barCode\": \"789054433.0789849395.1789510776.0078994274756000\"\n        },\n        {\n            \"id\": 578,\n            \"installmentNumber\": 10,\n            \"dueDate\": \"2025-08-22\",\n            \"installmentAmount\": 560,\n            \"barCode\": \"789786227.0789473831.1789862646.0078910417856000\"\n        }\n    ],\n    \"totalInterestPercentage\": 56,\n    \"totalInterestPaid\": 600,\n    \"analysisStatusDescription\": \"APPROVED\",\n    \"documentClient\": \"63455226515\",\n    \"nameClient\": \"Fernando Quinones\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "findAllClients",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"username": "cervejaria",
+								"password": "12345678"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "http://localhost:8080/client"
+					},
+					"response": []
+				},
+				{
+					"name": "findClientById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/client/1"
+					},
+					"response": []
+				},
+				{
+					"name": "findAllClientByProfileAdmin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/client/profile"
+					},
+					"response": []
+				},
+				{
+					"name": "findClientByDocument",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/client/document?document=677",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"client",
+								"document"
+							],
+							"query": [
+								{
+									"key": "document",
+									"value": "677"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createNewClient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"{{Name}}\",\r\n    \"lastName\": \"{{LastName}}\",\r\n    \"birthdate\": \"{{Birthdate}}\",\r\n    \"document\": \"{{CPF}}\",\r\n    \"phone\": \"119{{Phone}}\",\r\n    \"email\": \"{{Name}}.{{LastName}}{{Domain}}\",\r\n    \"userRole\": \"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/client"
+					},
+					"response": []
+				},
+				{
+					"name": "disabledClientById",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:8080/client/disabled/3"
+					},
+					"response": []
+				},
+				{
+					"name": "updateClient",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"{{Name}}\",\r\n    \"lastName\": \"{{LastName}}\",\r\n    \"birthdate\": \"{{Birthdate}}\",\r\n    \"document\": \"{{CPF}}\",\r\n    \"phone\": \"119{{Phone}}\",\r\n    \"email\": \"{{Name}}.{{LastName}}{{Domain}}\",\r\n    \"password\": \"{{}}\",\r\n    \"profile\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5001/client/2"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteClient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/client/disabled/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "address",
+			"item": [
+				{
+					"name": "findAddressById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"street\": \"Rua Silveira Campos\",\r\n    \"number\": \"515\",\r\n    \"zipcode\": \"01541030\",\r\n    \"district\": \"Cambuci\",\r\n    \"city\": \"São Paulo\",\r\n    \"state\": \"SP\",\r\n    \"country\": \"Brasil\",\r\n    \"main\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/address/2"
+					},
+					"response": []
+				},
+				{
+					"name": "createAddress",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"street\": \"Av DRa {{Name}} \",\r\n    \"number\": \"{{NumberStreet}}\",\r\n    \"zipcode\": \"{{CEP}}\",\r\n    \"district\": \"{{LastName}}\",\r\n    \"neighborhood\": \"{{Name}}\",\r\n    \"city\": \"{{City}}\",\r\n    \"state\": \"{{State}}\",\r\n    \"country\": \"Brasil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/address/4/"
+					},
+					"response": []
+				},
+				{
+					"name": "updateAddressClient",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"street\": \"Rua Silva Camposio\",\r\n    \"number\": \"00\",\r\n    \"zipcode\": \"01541080\",\r\n    \"neighborhood\": \"Cambuci\",\r\n    \"city\": \"São Paulo\",\r\n    \"state\": \"SP\",\r\n    \"country\": \"Brasil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/address/1/1"
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAddressClient",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"street\": \"Rua Silveira\",\r\n    \"number\": \"515\",\r\n    \"zipcode\": \"01541030\",\r\n    \"district\": \"Cambuci\",\r\n    \"city\": \"São Paulo\",\r\n    \"state\": \"SP\",\r\n    \"country\": \"Brasil\",\r\n    \"main\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/address/1/address/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contract",
+			"item": [
+				{
+					"name": "generateContract",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/contracts/1/generate"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"pm.globals.set(\"Phone\", _.random(1, 99999999));\r",
+					"// pm.environment.set(\"Price-random\", _.random(1000, 9999)),\r",
+					"pm.globals.set(\"CPF\", cpf_random()),\r",
+					"// pm.environment.set(\"Name-random\", randomText(7)),\r",
+					"pm.globals.set(\"Text-random\", randomText(7)),\r",
+					"pm.globals.set(\"Name\", randonFirstName()),\r",
+					"pm.globals.set(\"LastName\", randonLastName()),\r",
+					"pm.globals.set(\"Domain\", randonDomain());\r",
+					"pm.globals.set(\"City\", randomCityName());\r",
+					"pm.globals.set(\"State\", randomStateAbbreviation());\r",
+					"pm.globals.set(\"CEP\", randomCEP());\r",
+					"pm.globals.set(\"NumberStreet\", randomStreetNumber());\r",
+					"pm.globals.set(\"Birthdate\", randomBirthdate());\r",
+					"\r",
+					"\r",
+					"function randomBirthdate()\r",
+					"{\r",
+					"    var data = new Date();\r",
+					"    var dia = data.getDate() + _.random(9,1); // Corrigido para obter o dia do mês\r",
+					"    if (dia < 10) {\r",
+					"        dia = '0' + dia;\r",
+					"    }\r",
+					"    var mes = data.getMonth() + 1;\r",
+					"    var ano = data.getFullYear() + 1;\r",
+					"\r",
+					"    // Verifica se a pessoa tem pelo menos 18 anos\r",
+					"    var idadeMinima = 18;\r",
+					"    var anoNascimento = ano - idadeMinima;\r",
+					"\r",
+					"    // Corrige mês se necessário\r",
+					"    if (mes < 10) {\r",
+					"        mes = '0' + mes;\r",
+					"    }\r",
+					"\r",
+					"    // Verifica se a data de nascimento é maior que o dia atual\r",
+					"    if (mes > 12 || (mes === 12 && dia > 31)) {\r",
+					"        mes = 12;\r",
+					"        dia = 31;\r",
+					"    }\r",
+					"\r",
+					"    // Cria a data de expiração\r",
+					"    var dataExpiracao = anoNascimento + '-' + mes + '-' + dia;\r",
+					"\r",
+					"    return dataExpiracao;\r",
+					"}\r",
+					"\r",
+					"// Funcao para gerar numeros randomicos\r",
+					"function gera_random(n)\r",
+					"{\r",
+					"    var ranNum = Math.round(Math.random()*n);\r",
+					"    return ranNum;\r",
+					"}\r",
+					"\r",
+					"// Gerar Números de Rua\r",
+					"function randomStreetNumber() {\r",
+					"  var rand = _.random(1, 5000);\r",
+					"  return rand.toString();\r",
+					"}\r",
+					"\r",
+					"\r",
+					"// Funcao para retornar o resto da divisao entre numeros (mod)\r",
+					"function mod(dividendo,divisor)\r",
+					"{\r",
+					"    return Math.round(dividendo - (Math.floor(dividendo/divisor)*divisor));\r",
+					"}\r",
+					"\r",
+					"// Funcao que gera numeros de CPF validos\r",
+					"function cpf_random()\r",
+					"{\r",
+					"    var varCPF = '';\r",
+					"    var n = 9;\r",
+					"    var n1 = gera_random(n);\r",
+					"    var n2 = gera_random(n);\r",
+					"    var n3 = gera_random(n);\r",
+					"    var n4 = gera_random(n);\r",
+					"    var n5 = gera_random(n);\r",
+					"    var n6 = gera_random(n);\r",
+					"    var n7 = gera_random(n);\r",
+					"    var n8 = gera_random(n);\r",
+					"    var n9 = gera_random(n);\r",
+					"    var d1 = n9*2+n8*3+n7*4+n6*5+n5*6+n4*7+n3*8+n2*9+n1*10;\r",
+					"        d1 = 11 - ( mod(d1,11) );\r",
+					"           if (d1>=10) d1 = 0;\r",
+					"        var d2 = d1*2+n9*3+n8*4+n7*5+n6*6+n5*7+n4*8+n3*9+n2*10+n1*11;\r",
+					"        d2 = 11 - ( mod(d2,11) );\r",
+					"           if (d2>=10) d2 = 0;\r",
+					"           \r",
+					"    varCPF = ''+n1+n2+n3+'.'+n4+n5+n6+'.'+n7+n8+n9+'-'+d1+d2;\r",
+					"\r",
+					"    return varCPF;\r",
+					"}\r",
+					"\r",
+					"// Funcao para gerar letras randomicas\r",
+					"function randomText(length) {\r",
+					"   var result           = '';\r",
+					"   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\r",
+					"   var charactersLength = characters.length;\r",
+					"   for ( var i = 0; i < length; i++ ) {\r",
+					"      result += characters.charAt(Math.floor(Math.random() * charactersLength));\r",
+					"   }\r",
+					"   return result;\r",
+					"}\r",
+					"      \r",
+					"// Funcao para gerar numeros randomicos\r",
+					"function gera_random(n)\r",
+					"{\r",
+					"    var ranNum = Math.round(Math.random()*n);\r",
+					"    return ranNum;\r",
+					"}\r",
+					"\r",
+					"// Funcao que gera numeros de RFC\r",
+					"function rfc()\r",
+					"{\r",
+					"    var varRFC = '';\r",
+					"    var var1 = randomName(3);\r",
+					"    var var2 = gera_random(1000000, 9999999)\r",
+					"    while (var2 <=99999)\r",
+					"    {var2 = gera_random(1000000, 9999999)}\r",
+					"    \r",
+					"    varRFC += var1 + \"-\" + var2;\r",
+					"    return varRFC;\r",
+					"}\r",
+					"\r",
+					"function randomCEP() {\r",
+					"  var rand = _.random(0, 53);\r",
+					"  var ceps = [\r",
+					"    \"75012-879\",\r",
+					"    \"96031-476\",\r",
+					"    \"98051-193\",\r",
+					"    \"95040-830\",\r",
+					"    \"93032-429\",\r",
+					"    \"83090-630\",\r",
+					"    \"90031-808\",\r",
+					"    \"72071-034\",\r",
+					"    \"03070-294\",\r",
+					"    \"96072-084\",\r",
+					"    \"00053-117\",\r",
+					"    \"96090-037\",\r",
+					"    \"92120-561\",\r",
+					"    \"79011-002\",\r",
+					"    \"86010-870\",\r",
+					"    \"43030-061\",\r",
+					"    \"93041-200\",\r",
+					"    \"81112-179\",\r",
+					"    \"95071-107\",\r",
+					"    \"73121-383\",\r",
+					"    \"99120-124\",\r",
+					"    \"85122-899\",\r",
+					"    \"95080-630\",\r",
+					"    \"96091-413\",\r",
+					"    \"99070-960\",\r",
+					"    \"96110-842\",\r",
+					"    \"95110-132\",\r",
+					"    \"94040-909\",\r",
+					"    \"97061-401\",\r",
+					"    \"90102-376\",\r",
+					"    \"02030-010\",\r",
+					"    \"88092-301\",\r",
+					"    \"93062-831\",\r",
+					"    \"02030-105\",\r",
+					"    \"97020-105\",\r",
+					"    \"89040-909\",\r",
+					"    \"87022-781\",\r",
+					"    \"00061-430\",\r",
+					"    \"86081-132\",\r",
+					"    \"84062-420\",\r",
+					"    \"93062-831\",\r",
+					"    \"97070-200\",\r",
+					"    \"94040-919\",\r",
+					"    \"95080-121\",\r",
+					"    \"89041-023\",\r",
+					"    \"97103-033\",\r",
+					"    \"03042-901\",\r",
+					"    \"01090-050\",\r",
+					"    \"02031-461\",\r",
+					"    \"97122-719\",\r",
+					"    \"81100-607\",\r",
+					"    \"92100-041\",\r",
+					"    \"99011-169\",\r",
+					"    \"01031-701\"\r",
+					"  ];\r",
+					"  return ceps[rand];\r",
+					"}\r",
+					"\r",
+					"\r",
+					"function randomCityName() {\r",
+					"  var rand = _.random(0, 29);\r",
+					"  var cities = [\r",
+					"    \"São Paulo\",\r",
+					"    \"Rio de Janeiro\",\r",
+					"    \"Salvador\",\r",
+					"    \"Brasília\",\r",
+					"    \"Fortaleza\",\r",
+					"    \"Belo Horizonte\",\r",
+					"    \"Manaus\",\r",
+					"    \"Curitiba\",\r",
+					"    \"Recife\",\r",
+					"    \"Porto Alegre\",\r",
+					"    \"Belém\",\r",
+					"    \"Goiânia\",\r",
+					"    \"Guarulhos\",\r",
+					"    \"Campinas\",\r",
+					"    \"São Luís\",\r",
+					"    \"São Gonçalo\",\r",
+					"    \"Maceió\",\r",
+					"    \"Duque de Caxias\",\r",
+					"    \"Natal\",\r",
+					"    \"Teresina\",\r",
+					"    \"Campo Grande\",\r",
+					"    \"Serra\",\r",
+					"    \"João Pessoa\",\r",
+					"    \"Cuiabá\",\r",
+					"    \"Aracaju\",\r",
+					"    \"Feira de Santana\",\r",
+					"    \"Londrina\",\r",
+					"    \"Juiz de Fora\",\r",
+					"    \"Belford Roxo\",\r",
+					"    \"Joinville\"\r",
+					"  ];\r",
+					"  return cities[rand];\r",
+					"}\r",
+					"\r",
+					"function randomStateAbbreviation() {\r",
+					"  var rand = _.random(0, 29);\r",
+					"  var stateAbbreviations = [\r",
+					"    \"SP\",\r",
+					"    \"RJ\",\r",
+					"    \"BA\",\r",
+					"    \"DF\",\r",
+					"    \"CE\",\r",
+					"    \"MG\",\r",
+					"    \"AM\",\r",
+					"    \"PR\",\r",
+					"    \"PE\",\r",
+					"    \"RS\",\r",
+					"    \"PA\",\r",
+					"    \"GO\",\r",
+					"    \"SP\",\r",
+					"    \"SP\",\r",
+					"    \"MA\",\r",
+					"    \"RJ\",\r",
+					"    \"AL\",\r",
+					"    \"RJ\",\r",
+					"    \"RN\",\r",
+					"    \"PI\",\r",
+					"    \"MS\",\r",
+					"    \"ES\",\r",
+					"    \"PB\",\r",
+					"    \"MT\",\r",
+					"    \"SE\",\r",
+					"    \"BA\",\r",
+					"    \"PR\",\r",
+					"    \"MG\",\r",
+					"    \"RJ\",\r",
+					"    \"SC\"\r",
+					"  ];\r",
+					"  return stateAbbreviations[rand];\r",
+					"}\r",
+					"\r",
+					"\r",
+					"\r",
+					"function randonFirstName()\r",
+					"{\r",
+					"    var rand = _.random(0, 200);\r",
+					"    var firstName=[\"Sofia\",\"Camila\",\"Valentina\",\"Isabella\",\"Daniela\",\"Mariana\",\"Sara\",\"Vitória\",\"Gabriela\",\"Ximena\",\"Andrea\",\"Natalie\",\"Meu\",\"Martina\",\"Lucy\",\"Samantha\",\"Maria\",\"Maria\",\"Fernanda\",\"Nicole\",\"Alexandra\",\"Paula\",\"Emily\",\"Maria\",\"Jose\",\"Fernanda\",\"Luciana\",\"Ana\",\"Sofia\",\"Melanie\",\"Regina\",\"Katherine\",\"Ashley\",\"Renata\",\"Agostinho\",\"Emma\",\"Emilia\",\"Jasmim\",\"Juanita\",\"Briana\",\"Vanessa\",\"Antonia\",\"Laura\",\"Antonella\",\"Lua\",\"Carla\",\"Allison\",\"Monserrat\",\"Paulin\",\"Isabel\",\"Juliana\",\"Valerie\",\"Florença\",\"Adriana\",\"Naomi\",\"Amanda\",\"Ariana\",\"Morena\",\"Natalie\",\"Constance\",\"Lola\",\"Zoe\",\"Carolina\",\"Micaela\",\"Julia\",\"Claudia\",\"Paola\",\"Alexa\",\"Elena\",\"Isidora\",\"Rebeca\",\"Josephine\",\"Abigail\",\"Julieta\",\"Melissa\",\"Michelle\",\"Maria\",\"Camila\",\"Angela\",\"Golfinho\",\"Aitana\",\"Stephanie\",\"Fatima\",\"Manuela\",\"Alexandra\",\"Vela\",\"Claro\",\"Laura sofia\",\"Diana\",\"Ana\",\"Maria\",\"Guadalupe\",\"Barbara\",\"Bianca\",\"Miranda\",\"Sabrina\",\"Pilar\",\"Ana Maria\",\"Martha\",\"Ana\",\"Gênese\",\"Santiago\",\"Sebastian\",\"Diego\",\"Nicholas\",\"Samuel\",\"Alexandre\",\"Daniel\",\"Mateus\",\"Anjo\",\"Matias\",\"Gabriel\",\"Thomas\",\"David\",\"Emiliano\",\"Andrew\",\"Joaquin\",\"Charles\",\"Alexandre\",\"Adrian\",\"Lucas\",\"Benjamin\",\"Leonardo\",\"Rodrigo\",\"Philip\",\"Francisco\",\"Paulo\",\"Martin\",\"Fernando\",\"Isaac\",\"Manuel\",\"Juan\",\"Pablo\",\"Emmanuel\",\"Emilio\",\"Vincent\",\"Eduardo\",\"Juan\",\"Javier\",\"George\",\"Aaron\",\"Joseph\",\"Erick\",\"Luis\",\"Ignacio\",\"Christopher\",\"Jesus\",\"Kevin\",\"Juan José\",\"Agustín\",\"Juan\",\"David\",\"Simon\",\"Joshua\",\"Maximilian\",\"Miguel\",\"Angel\",\"Juan\",\"Sebastian\",\"Bruno\",\"Ivan\",\"Gaélico\",\"Michael\",\"Thiago\",\"Jerome\",\"Hugo\",\"Richard\",\"Antonio\",\"Ian\",\"Anthony\",\"Pedro\",\"Rafael\",\"Jonathan\",\"Stephen\",\"Juan\",\"Manuel\",\"Julian\",\"Mauricio\",\"Oscar\",\"Santino\",\"Axel\",\"Sergio\",\"William\",\"Mateus\",\"Batista\",\"Alvaro\",\"Dylan\",\"Kimberly\",\"Luciano\",\"Mario\",\"Cessar\",\"Cristobal\",\"Luca\",\"Iker\",\"Juan\",\"Andres\",\"Gonzalo\",\"Robert\",\"Valentino\",\"Facundo\",\"Patrick\",\"Diego\",\"Alejandro\",\"Josué\",\"Frank\"];\r",
+					"    return firstName[rand];\r",
+					"}\r",
+					"\r",
+					"\r",
+					"function randonLastName()\r",
+					"{\r",
+					"    var rand = _.random(0, 53);\r",
+					"    var lastName=[\"Rodriguez\",\"Hernandez\",\"Garcia\",\"Martinez\",\"Gonzalez\",\"Lopez\",\"Perz\",\"Sanshez\",\"Ramirez\",\"Flores\",\"Gomez\",\"Antunez\",\"Benitez\",\"Marquez\",\"Arreola\",\"Aguado\",\"Arrechavaleta\",\"Campana\",\"DeLaFuente\",\"DelBosque\",\"Esparza\",\"Fuentes\",\"Gallego\",\"Huerta\",\"Ibanez\",\"Losa\",\"Mata\",\"Ochoa\",\"Ojeda\",\"Palomo\",\"Paredes\",\"Pavia\",\"Quinones\",\"Quintana\",\"Reyes\",\"Rios\",\"Rojo\",\"Roldan\",\"Salcedo\",\"Salinas\",\"Sastre\",\"Sepulveda\",\"Tapia\",\"Terrazas\",\"Urena\",\"Valdez\",\"Varela\",\"Villar\",\"VillaVerde\",\"Florença\",\"Viteri\",\"Ybarra\",\"Zamarano\",\"Zapatero\"];\r",
+					"    return lastName[rand];\r",
+					"}\r",
+					"\r",
+					"setTimeout(function(){}, [3000]);\r",
+					"\r",
+					"function randonDomain()\r",
+					"{\r",
+					"    var rand = _.random(0, 10);\r",
+					"    var lastName=[\"@outlook.com\",\"@hotmail.com\",\"@gmail.com\",\"@yahoo.com.br\",\"@icloud.com\",\"@live.com.br\",\"@uol.com.br\",\"@mail.com\",\"@amazon.com\", \"@ig.com.br\"];\r",
+					"    return lastName[rand];\r",
+					"}\r",
+					"\r",
+					"\r",
+					"\r",
+					"//Comprador Jessica\r",
+					"// var name = \"Jessica Sousa\"\r",
+					"// var cpf = \"410.183.128-97\"\r",
+					"// var email = \"jessica.sousa@koin.com.br\"\r",
+					"\r",
+					"// pm.environment.set(\"Nome\", nome);\r",
+					"// pm.environment.set(\"CPF\", cpf);\r",
+					"// pm.environment.set(\"Email\", email);\r",
+					"\r",
+					"\r",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
