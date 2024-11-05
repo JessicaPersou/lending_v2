@@ -27,12 +27,12 @@ public class AddressController {
         return addressService.findAddressByClientId(id);
     }
 
-    @PostMapping("{clientId}/")
+    @PostMapping("/{clientId}")
     public AddressDTO newAddress(@PathVariable Long clientId, @RequestBody AddressDTO addressDTO) {
         return addressService.createNewAddress(clientId, addressDTO);
     }
 
-    @PutMapping("{idClient}//{idAddress}")
+    @PutMapping("{idClient}/{idAddress}")
     public AddressDTO updateAddress(@PathVariable Long idClient, @PathVariable Long idAddress,
             @RequestBody AddressDTO addressDTO) {
         return addressService.updateAddress(idClient, idAddress, addressDTO);

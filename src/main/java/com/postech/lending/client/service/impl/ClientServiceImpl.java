@@ -6,7 +6,7 @@ import com.postech.lending.client.model.Client;
 import com.postech.lending.client.model.enums.ProfileState;
 import com.postech.lending.client.repository.ClientRepository;
 import com.postech.lending.client.service.ClientService;
-import com.postech.lending.infrastructure.exception.ErrorMessageException;
+import com.postech.lending.common.exception.ErrorMessageException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -106,7 +106,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     public static String removeCaracterDocument(String document){
-        document = document.replaceAll("[D^0-9]", "");
+        document = document.replaceAll("[\\D]", "");
         return document;
     }
 }

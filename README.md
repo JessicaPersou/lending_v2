@@ -6,7 +6,7 @@ Este repositório contém o código-fonte do Projeto Lending, que está sendo de
 
 Para uma visão geral do fluxo de eventos do projeto, você pode acessar o **Event Storming** através do seguinte link:
 
-[Lending - Event Storming](https://miro.com/app/board/uXjVKgThZVE=/)
+[Lending - Event Storming](https://miro.com/app/board/uXjVKgThZVE=/?share_link_id=869797767828)
 
 ## Descrição do Projeto
 
@@ -28,7 +28,7 @@ Cada pacote representa uma camada ou um agregado importante no projeto:
 - **creditAnalysis**: Responsável pelo processo de Análise de Crédito.
 - **contract**: Formaliza o contrato de empréstimo entre o cliente e a Lending.
 - **common**: Contém classes e exceções comuns que podem ser utilizadas em todo o projeto.
-- **infrastructure**: Configurações e integrações de infraestrutura, como o banco de dados.
+- **infrastructure**: Configurações e integrações de infraestrutura, gerador de código de barras para as parcelas.
 - **LendingApplication**: Classe principal que inicializa o aplicativo Spring Boot.
 
 
@@ -55,3 +55,8 @@ Cada pacote representa uma camada ou um agregado importante no projeto:
 4. O aplicativo estará disponível em:
    ```bash
     http://localhost:8080
+5. Configuração do banco de dados H2:
+   ```bash
+    JDBC URL: jdbc:h2:mem:lending
+    User Name: admin
+    Password: admin

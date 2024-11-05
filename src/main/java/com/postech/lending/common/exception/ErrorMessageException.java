@@ -1,4 +1,4 @@
-package com.postech.lending.infrastructure.exception;
+package com.postech.lending.common.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

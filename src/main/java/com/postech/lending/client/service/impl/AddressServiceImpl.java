@@ -6,7 +6,7 @@ import com.postech.lending.client.model.Client;
 import com.postech.lending.client.repository.AddressRepository;
 import com.postech.lending.client.repository.ClientRepository;
 import com.postech.lending.client.service.AddressService;
-import com.postech.lending.infrastructure.exception.ErrorMessageException;
+import com.postech.lending.common.exception.ErrorMessageException;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.BeanUtils;
