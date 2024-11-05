@@ -42,7 +42,7 @@ public class ContractServiceImpl implements ContractService {
 
         String contractDetails = formatContractDetails(contractDTO);
 
-        try (FileWriter writer = new FileWriter("")) {
+        try (FileWriter writer = new FileWriter("lending_contract.txt")) {
             writer.write(contractDetails);
         } catch (IOException e) {
             e.printStackTrace();
@@ -55,13 +55,13 @@ public class ContractServiceImpl implements ContractService {
 
     private String formatContractDetails(ContractDTO contractDTO) {
         return new StringBuilder()
-                .append("Contrato de Lending - Empréstimo Fácil")
+                .append("Contrato de Lending - Empréstimo Fácil\n")
                 .append("Nome do Cliente: ").append(contractDTO.getClientFullName()).append("\n")
                 .append("Documento do Cliente: ").append(contractDTO.getClientDocument()).append("\n")
-                .append("Valor do Empréstimo: ").append(contractDTO.getAnalysisAmount()).append("\n")
+                .append("Valor do Empréstimo: R$ ").append(String.format("%.2f", contractDTO.getAnalysisAmount())).append("\n")
                 .append("Número de Parcelas: ").append(contractDTO.getNumberOfInstallments()).append("\n")
-                .append("Detalhes da Primeira Parcela: ").append(contractDTO.getInstallmentDetails()).append("\n")
-                .append("Taxa de Juros: ").append(contractDTO.getInterestRate()).append("%\n")
+                .append("Valor das Parcela: ").append(contractDTO.getInstallmentDetails()).append("\n")
+                .append("Taxa de Juros: ").append(String.format("%.2f", contractDTO.getInterestRate() / 100)).append("%\n")
                 .append("Data de Início: ").append(contractDTO.getStartDate()).append("\n")
                 .append("Data de Limite de Aceite: ").append(contractDTO.getEndDate()).append("\n")
                 .append("Status: ").append(contractDTO.getStatus()).append("\n")
